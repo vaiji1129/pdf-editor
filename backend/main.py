@@ -19,7 +19,7 @@ app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "https://pdf-editor-theta-ten.vercel.app/"
+        "https://pdf-editor-theta-ten.vercel.app"
     ],
     allow_credentials=True,
     allow_methods=["*"],
