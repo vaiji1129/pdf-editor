@@ -24,7 +24,7 @@ function App() {
           setLoading(true)
 
           const response = await fetch(
-              "http://127.0.0.1:8000/merge",
+              "https://pdf-editor-8vpd.onrender.com/merge",
               {
                   method: "POST",
                   body: formData
@@ -87,7 +87,7 @@ function App() {
           setLoading(true)
 
           const response = await fetch(
-            "http://127.0.0.1:8000/delete",
+            "https://pdf-editor-8vpd.onrender.com/delete",
             {
               method: "POST",
               body: formData
