@@ -21,6 +21,7 @@ function App() {
           formData.append("file", file)
           formData.append("half_cut", halfCut)
 
+          setMessage("")
           setLoading(true)
 
           const response = await fetch(
@@ -39,7 +40,11 @@ function App() {
 
           a.href = url
 
-          a.download = "processed.pdf"
+          const originalName =
+              file.name.replace(".pdf", "")
+
+          a.download =
+              `${originalName}_processed.pdf`
 
           document.body.appendChild(a)
 
@@ -84,6 +89,7 @@ function App() {
             pagesToRemove
           )
 
+          setMessage("")
           setLoading(true)
 
           const response = await fetch(
@@ -102,7 +108,11 @@ function App() {
 
           a.href = url
 
-          a.download = "edited.pdf"
+          const originalName =
+              file.name.replace(".pdf", "")
+
+          a.download =
+              `${originalName}_edited.pdf`
 
           document.body.appendChild(a)
 
@@ -143,7 +153,9 @@ function App() {
         <input
           type="file"
           accept=".pdf"
-          onChange={(e) => setFile(e.target.files[0])}
+          onChange={(e) => {
+              setFile(e.target.files[0])
+              setMessage("")}}
         />
 
         <br />
