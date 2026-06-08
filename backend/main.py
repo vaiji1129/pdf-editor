@@ -1,19 +1,25 @@
+import os
 from fastapi import FastAPI, UploadFile, File, Form, HTTPException, BackgroundTasks
 from fastapi.responses import FileResponse
 import shutil
 import uuid
-import os
+
 
 from pdf_processor import delete_pages
 from pdf_processor import merge_pdf
 from fastapi.middleware.cors import CORSMiddleware
+
+os.makedirs(
+    "uploads",
+    exist_ok=True
+)
 
 app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost:5173"
+        "*"
     ],
     allow_credentials=True,
     allow_methods=["*"],
